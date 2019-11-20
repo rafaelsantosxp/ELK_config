@@ -1,0 +1,23 @@
+filebeat.inputs:
+- type: container
+  paths:
+    - '/var/lib/docker/containers/*/*.log'
+
+processors:
+- add_docker_metadata:
+    host: "unix:///var/run/docker.sock"
+
+- decode_json_fields:
+    fields: ["message"]
+    target: "json"
+    overwrite_keys: true
+
+output.elasticsearch:
+  hosts: ["elk.fundacred.org.br:9200"]
+  indices:
+    - index: "filebeat-tst-%{[agent.version]}-%{+yyyy.MM.dd}"
+setup.kibana:
+  host: "elk.fundacred.org.br:5601"
+
+logging.json: true
+logging.metrics.enabled: false
