@@ -61,6 +61,4 @@ setup.kibana:
 xpack.monitoring:
   enabled: true
   elasticsearch:
-                                                                                    64,1          Fim
-
-
+            
