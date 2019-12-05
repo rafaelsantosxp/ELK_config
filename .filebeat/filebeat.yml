@@ -15,7 +15,7 @@ processors:
 output.elasticsearch:
   hosts: ["elk.fundacred.org.br:9200"]
   indices:
-    - index: "filebeat-tst-%{[agent.version]}-%{+yyyy.MM.dd}"
+    - index: "filebeat-prd-%{[agent.version]}-%{+yyyy.MM.dd}"
 setup.kibana:
   host: "elk.fundacred.org.br:5601"
 
