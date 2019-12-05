@@ -5,3 +5,5 @@ cp ./docker.yml /etc/filebeat/modules.d/docker.yml
 cp ./filebeat.yml /etc/filebeat/filebeat.yml
 systemctl enable filebeat
 systemctl start filebeat
+systemctl status filebeat
+filebeat test output
